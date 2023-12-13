@@ -9,3 +9,5 @@ export default function linear_search(
     }
     return false;
 }
+
+//! "npx jest Linear" to run the test
