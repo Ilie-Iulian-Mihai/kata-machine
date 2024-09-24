@@ -1,19 +1,18 @@
 export default function bs_list(haystack: number[], needle: number): boolean {
-    let low = 0;
-    let high = haystack.length;
+    let hi = haystack.length;
+    let lo = 0;
 
-    do {
-        const middle = Math.floor(low + (high - low) / 2);
-        const value = haystack[middle];
+    while (lo < hi) {
+        const m = Math.floor(lo + (hi - lo) / 2);
+        const v = haystack[m];
 
-        if (value === needle) {
+        if (v === needle) {
             return true;
-        } else if (value > needle) {
-            high = middle;
+        } else if (v < needle) {
+            lo = m + 1;
         } else {
-            low = middle + 1;
+            hi = m;
         }
-    } while (low < high);
-
+    }
     return false;
 }
